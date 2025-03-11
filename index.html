@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Shopping list</title>
+</head>
+
+<body>
+    <h1>Shopping list</h1>
+    <div id="app">
+        <input type="text" v-model="newItem.name" placeholder="Name">
+        <input type="number" v-model="newItem.quantity" placeholder="Quantity">
+        <button @click="addItem">Add</button>
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    <button class="btn" @click="sortById">Id</button>
+                </th>
+                <th>
+                    <button class="btn btn-primary" @click="sortByName">Name</button>
+                </th>
+                <th>
+                    <button class="btn btn-secondary" @click="sortByQuantity">Quantity</button>
+                </th>
+            </tr>
+            <tr v-for="item in items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
