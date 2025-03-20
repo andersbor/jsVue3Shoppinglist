@@ -15,6 +15,9 @@
         <input type="text" v-model="newItem.name" placeholder="Name">
         <input type="number" v-model="newItem.quantity" placeholder="Quantity">
         <button @click="addItem">Add</button>
+        <br>
+        <input type="text" v-model="nameFragment" placeholder="Name">
+        <button @click="filterByName">Filter</button>
         <div v-if="items.length===0">
             No items</div>
         <div v-else>

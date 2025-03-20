@@ -10,7 +10,8 @@ Vue.createApp({
                 { id: 5, name: "butter", quantity: 1 },
             ],
             newItem: { id: null, name: null, quantity: null },
-            sortNameAscending: true
+            sortNameAscending: true,
+            nameFragment: "",
         }
     },
     methods: {
@@ -31,6 +32,11 @@ Vue.createApp({
         },
         sortByQuantity() {
             this.items.sort((a, b) => a.quantity - b.quantity);
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
         },
+        filterByName() {
+            this.items = this.items.filter(item => item.name.includes(this.nameFragment));
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+        }
     }
 }).mount("#app")
