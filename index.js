@@ -9,7 +9,8 @@ Vue.createApp({
                 { id: 4, name: "eggs", quantity: 6 },
                 { id: 5, name: "butter", quantity: 1 },
             ],
-            newItem: { id: null, name: null, quantity: null }
+            newItem: { id: null, name: null, quantity: null },
+            sortNameAscending: true
         }
     },
     methods: {
@@ -21,7 +22,12 @@ Vue.createApp({
             this.items.sort((a, b) => a.id - b.id);
         },
         sortByName() {
-            this.items.sort((a, b) => a.name.localeCompare(b.name));
+            if (this.sortNameAscending) {
+                this.items.sort((a, b) => a.name.localeCompare(b.name));
+            } else {
+                this.items.sort((a, b) => b.name.localeCompare(a.name));
+            }
+            this.sortNameAscending = !this.sortNameAscending;
         },
         sortByQuantity() {
             this.items.sort((a, b) => a.quantity - b.quantity);
