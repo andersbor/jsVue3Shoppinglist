@@ -19,6 +19,9 @@ Vue.createApp({
             this.newItem.id = this.items.length + 1;
             this.items.push(this.newItem);
         },
+        deleteItem(item) {  
+            this.items = this.items.filter(i => i.id !== item.id);
+        },
         sortById() {
             this.items.sort((a, b) => a.id - b.id);
         },
@@ -35,6 +38,7 @@ Vue.createApp({
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
         },
         filterByName() {
+            // TODO gentagne filtreringer
             this.items = this.items.filter(item => item.name.includes(this.nameFragment));
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
         }
